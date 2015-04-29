@@ -19,6 +19,10 @@ var viewModel = function() {
 	this.incrementCounter = function(){
 		this.clickCount(this.clickCount() + 1);
 	};
+
+	this.nicknames = ko.observableArray([
+		'Kitty', 'Tob', 'Kat'
+	]);
 };
 
 ko.applyBindings(new viewModel());
