@@ -74,13 +74,58 @@ var viewModel = function() {
 	});
 
 	self.currentCat = ko.observable(self.catList()[0]);
-	
+
+	self.shouldShowPanel = ko.observable(false);
+
+	self.admin = ko.computed(function(){
+		var result = {
+			name : self.currentCat().name(),
+			imgSrc : self.currentCat().imgSrc(),
+			clickCount : self.currentCat().clickCount(),
+			nicknames : self.currentCat().nicknames()
+		}
+		return result;
+	});
+
 	self.incrementCounter = function(){
 		self.currentCat().clickCount(self.currentCat().clickCount() + 1);
 	};
 
-	self.selectCat = function(cat){
+	self.selectCat = function(cat,e){
 		self.currentCat(cat);
+		self.toggleSelectedClass(e.target);
+		
+	};
+
+	self.toggleSelectedClass = function(element) {
+		var previous = document.querySelector('.selected');
+		if (previous !=  undefined){
+			previous.className = '';
+		}	
+		element.className = 'selected';
+	};
+
+	self.togglePanel = function(){
+		self.shouldShowPanel( !self.shouldShowPanel() );
+	};
+
+	self.saveCat = function(){
+
+		self.currentCat().name(document.querySelector('#inpCatName').value);
+		self.currentCat().imgSrc(document.querySelector('#inpUrl').value);
+		self.currentCat().clickCount(Number(document.querySelector('#inpClicks').value));
+		var $nicks = document.querySelectorAll('.inpNicknames');
+		var arrayNicks = [];
+		for (var i = 0; i <= $nicks.length - 1; i++){
+			arrayNicks.push($nicks[i].value);
+		}
+		self.currentCat().nicknames(arrayNicks);
+		self.togglePanel();
+	};
+
+	self.cancelCat = function(cat) {
+		self.togglePanel();
+		self.selectCat(cat);
 	};
 
 

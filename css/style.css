@@ -1,0 +1,138 @@
+body {
+	background-color : rgba(207, 226, 243, 0.69);
+		margin-left  : 25%;
+		margin-right : 25%;
+		 font-family : sans-serif;
+}
+
+span {
+	 
+		   font-size : 1.5em;
+		  font-style : italic;
+		 font-family : fantasy;
+	  text-transform : uppercase;
+		padding-left : 40px;
+}
+
+.header {
+	background-color : rgb(129, 117, 104);
+		   font-size : 40px;
+		   	   color : white;
+			 padding : 5px;
+}
+
+.main-container {
+		 padding-top : 12px;
+	  padding-bottom : 12px;
+}
+
+.img-container {
+		 margin-left : auto;
+	    margin-right : auto;
+			   width : 640px;
+}
+
+.img {
+			  height : 426px;
+			   width : 640px;
+}
+
+.click-counter {		
+	background-color : blue;
+			  border : 0;
+	   border-radius : 5px;
+	     margin-left : auto;
+	    margin-right : auto;
+	    	   width : 640px;
+	    	   color : white;
+	       font-size : 2em;
+}
+
+.nav{
+			position : absolute;
+		 line-height : 5em;
+		 margin-top  : -20px;
+		  text-align : center;
+}
+
+.listCats {
+		  list-style : none;
+		   font-size : 2em;
+	background-color : blue;
+			 padding : 15px;
+			   color : white;
+}
+.listCats li{
+			 padding : 15px;
+}
+.listCats li:hover {
+			   color : blue;
+	background-color : orange;
+}
+
+.listCats li:active {
+			   color : orange;
+	background-color : blue;
+}
+
+.img {
+			  height : 420px;
+			   width : 640px;
+}
+
+.selected {
+			   color : blue;
+  	background-color : orange;
+}
+
+.admin-panel{
+			   width : 640px;
+			  margin : auto;
+		  text-align : start;
+			 display : flex;
+}
+
+.form-container {
+		 margin-left : auto;
+		margin-right : auto;
+	background-color : ivory;
+			   width : 600px;
+		  text-align : right;
+			 padding : 10px;
+}
+
+.input {
+	   margin-bottom : 10px;
+}
+
+button {
+		margin-right : 10px;
+			   color : red;
+	background-color : bisque;
+		 font-family : monospace;
+		   font-size : 1.5em;
+}
+
+.info-container {
+			  margin : auto;
+			   width : 640px;
+	background-color : rgba(215, 236, 49, 1);
+}
+.info-container h2 {
+		   font-size : 3em;
+		  margin-top : auto;
+		 padding-top : 20px;
+		padding-left : 20px;
+	   margin-bottom : auto;
+	  padding-bottom : 20px;
+			 display : inline;
+}
+
+.info-container h3 {
+		   font-size : 1.5em;
+		  margin-top : auto;
+		 padding-top : 20px;
+		padding-left : 20px;
+	   margin-bottom : auto;
+
+}

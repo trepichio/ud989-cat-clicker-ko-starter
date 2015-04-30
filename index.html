@@ -1,32 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cat Clicker</title>
-</head>
-<body>
-    <h2>Cat List</h2>
-    <ul data-bind="foreach: catList">
-        <li><a href="#" data-bind="text: name, click: $parent.selectCat"></a></li>
-    </ul>
-    </div>
-    <div id="cat" data-bind="with: currentCat">
-
-        <h2 data-bind="text: name"></h2>
-        <div data-bind="text: level"></div>
-        <div data-bind="text: clickCount"></div>
-        <img src="" alt="cute cat" data-bind="click: $parent.incrementCounter, attr: {src: imgSrc}">
-        <div>
-            <h3>Nicknames</h3>
-            <ul data-bind="foreach: nicknames">
-            <li data-bind="text: $data"></li>
-        </ul>
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Cat Clicker App">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CAT CLICKER</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="header">Cat-Clicker APP</div>
+        <aside class="nav">
+            <ul class="listCats" data-bind="foreach: catList">
+                <li data-bind="click: $parent.selectCat, text: name"></li>         
+            </ul>
+        </aside>
+        <div class="main-container" data-bind="with: currentCat">
+            <div class="info-container">
+                <h2 data-bind="text: name"></h2>
+                <span data-bind="text: level"></span>
+                <div>
+                    <h3>Nicknames</h3>
+                    <ul data-bind="foreach: nicknames">
+                        <li data-bind="text: $data"></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="img-container">
+                <img src="" alt="cute cat" class="img" data-bind="attr: {src : imgSrc}, click: $parent.incrementCounter">
+            </div>
+            <div class="click-counter">No. de Clicks: <span data-bind="text: clickCount"></span></div>
+            
+            <div class="admin-panel">
+                <div class="controls">
+                    <button id="btAdmin" data-bind="click: $parent.togglePanel">Admin</button>
+                </div>
+                <div class="form-container" data-bind="visible: $parent.shouldShowPanel">  
+                    <form action="">
+                        <label for="inpCatName" class="input">Cat's Name:</label>
+                        <input type="text" id="inpCatName" class="input" data-bind="textInput: $parent.admin().name"><br/>
+                        <label for="inpUrl" class="input" >URL Picture:</label>
+                        <input type="text" id="inpUrl" class="input" data-bind="textInput: $parent.admin().imgSrc"><br/>
+                        <label for="inpClicks" class="input">No. Clicks:</label>
+                        <input type="text" id="inpClicks" class="input" data-bind="textInput: $parent.admin().clickCount"><br/> 
+                        <div data-bind="foreach: $parent.admin().nicknames">
+                            <label for="inpClicks" class="input">Nicknames:</label>
+                            <input type="text" class="inpNicknames input" data-bind="textInput : $data"><br/>
+                        </div>
+                        
+                        <div class="controls">
+                            <button type="button" id="btSubmit" data-bind="click: $parent.saveCat">Save</button>
+                            <button type="button" id="btClear" data-bind= "click: $parent.cancelCat">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        
-
-    </div>
-    <div>
     <script src="js/lib/knockout-3.2.0.js"></script>
     <script src="js/app.js"></script>
-</body>
+    </body>
 </html>
